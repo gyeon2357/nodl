@@ -170,10 +170,10 @@ table {
 
 h1.extralarge {
   font-size: 6rem;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: 1px;
-  font-family: "GowunDodum-Regular";
+  /* font-family: "GowunDodum-Regular"; */
   margin: 2rem 0 1rem 0;
 }
 
