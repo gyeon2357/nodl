@@ -2,6 +2,12 @@
   --main-color: #9a13b8;
   --main-color-50: #9a13b8dd;
   --main-text-color: #333;
+
+  --light-background: #fcfcfc;
+  --light-box-background: #f0f0f0;
+
+  --dark-background: #333;
+  --dark-box-background: #252525;
 }
 html {
   -ms-text-size-adjust: 100%;
@@ -120,7 +126,7 @@ a.button.pressed {
   border: 2px solid rgb(163, 154, 143);
   border-top-color: #5c5a53;
   border-left-color: #5c5a53;
-  background: #fcfcfc;
+  background: var(--light-background);
 }
 
 header,
@@ -229,7 +235,7 @@ nav#main a {
   text-decoration: none;
 }
 
-nav#main a span.fruit {
+nav#main a span.emoji {
   display: inline-block;
 
   height: 105px;
@@ -253,7 +259,7 @@ nav#main a span.fruit {
     right: 0.625rem;
 } */
 
-nav#main a.archive span.fruit {
+nav#main a.archive span.emoji {
   background: url("");
   background-size: auto 100%;
   background-position-x: center;
@@ -263,8 +269,8 @@ nav#main a.archive span.fruit {
   border-bottom-color: #48433a;
 }
 
-nav#main a.archive:active span.fruit,
-nav#main a.archive:focus span.fruit {
+nav#main a.archive:active span.emoji,
+nav#main a.archive:focus span.emoji {
   border-color: #48433a;
   border-right-color: #998f8f;
   border-bottom-color: #998f8f;
@@ -275,7 +281,7 @@ nav#main a.archive:focus span.fruit {
   display: none;
 }
 
-nav#main a.current span.fruit {
+nav#main a.current span.emoji {
   border: 2px solid rgb(163, 154, 143);
   border-top-color: #5c5a53;
   border-left-color: #5c5a53;
@@ -288,18 +294,22 @@ nav#main span.section {
   margin-top: 1em;
 }
 
-span.fruit,
+span.emoji,
 .press {
   transition: background-color 1s ease;
 }
 
-span.fruit:hover,
+span.emoji:hover,
 .press:hover {
-  background: #fcfcfc;
+  background: var(--light-background);
 }
 
-.fruit img {
+.emoji img {
   width: 80%;
+}
+
+.pilcrow {
+  filter: grayscale(1);
 }
 
 mark {
@@ -441,7 +451,7 @@ b {
 
 #offerings p {
   margin-top: 0;
-  margin-bottom: 3em;
+  margin-bottom: 5rem;
   padding: 15px 20px 20px 1.25rem;
   text-align: left;
   text-transform: lowercase;
@@ -468,7 +478,7 @@ b {
 
 .button-container a.button:active,
 .button-container a.button:focus {
-  background: #fcfcfc;
+  background: var(--light-background);
 }
 
 footer {
@@ -476,17 +486,17 @@ footer {
   text-align: center;
 }
 
-#fruit {
-  background-color: #fcfcfc;
+#clock-box {
+  background-color: var(--light-background);
   display: inline-block;
-  transition: 5s border-radius ease;
+  transition: 3s border-radius ease;
   border-radius: 100%;
   width: 100%;
-  padding: 400px 0;
+  padding: 360px 0;
   font-size: 6rem;
-  margin-bottom: 50px;
+  margin-bottom: 4rem;
   left: 0;
-  border: 2px solid rgb(163, 154, 143);
+  border: 1px solid rgb(163, 154, 143);
   border-top-color: #5c5a53;
   border-left-color: #5c5a53;
 }
@@ -565,7 +575,7 @@ tr {
 }
 
 body.dark {
-  background: var(--main-text-color);
+  background: var(--dark-background);
   color: #a0a0a0;
 }
 
@@ -595,35 +605,33 @@ body.dark .extralarge {
 }
 
 body.dark .portal {
-  background: url("../images/giovanni_stanchi_scattered_flowers_and_fruit_on_a_ledge_2_small.jpg");
+  background: url("");
   background-size: 100% 100%;
 }
 
-body.dark nav#main a span.fruit {
+body.dark nav#main a span.emoji {
   border: 2px solid #48433a;
   border-top-color: #998f8f;
   border-left-color: #998f8f;
 }
 
-body.dark nav#main a.current span.fruit {
+body.dark nav#main a.current span.emoji {
   border: 2px solid #998f8f;
   border-top-color: #48433a;
   border-left-color: #48433a;
   background: #2c271e;
-  background: #252525;
+  background: var(--dark-box-background);
 }
 
+body.dark #info p,
+body.dark article,
 body.dark #offerings div.offering {
-  background: #252525;
+  background: var(--dark-box-background);
 }
 
-body.dark #info p {
-  background: #252525;
-}
-
-body.dark #fruit {
+body.dark #clock-box {
   background: #2c271e;
-  background: #252525;
+  background: var(--dark-box-background);
 }
 
 body.dark svg {
@@ -634,7 +642,7 @@ body.dark .previous-posts a:visited.button {
   color: #5e5e5e;
 }
 
-body.dark span.fruit:hover,
+body.dark span.emoji:hover,
 body.dark .press:hover {
   background: #171513;
 }
@@ -643,26 +651,6 @@ body.dark h1.extralarge a,
 body.dark .extralarge a {
   color: #a0a0a0;
   text-shadow: #5c5a53 -1px -2px 0;
-}
-
-@media (orientation: portrait) {
-  .for-portrait {
-    display: block;
-  }
-
-  .for-landscape {
-    display: none;
-  }
-}
-
-@media (orientation: landscape) {
-  .for-portrait {
-    display: none;
-  }
-
-  .for-landscape {
-    display: block;
-  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -695,12 +683,12 @@ body.dark .extralarge a {
 
   h2.extralarge {
     font-size: 3rem;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
   }
 
   .small {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
 
   .medium,
@@ -714,16 +702,16 @@ body.dark .extralarge a {
     margin-bottom: 1em;
   }
 
-  nav#main a span.fruit {
+  nav#main a span.emoji {
     margin: 0.5rem 4px;
     height: 76px;
     width: 76px;
     font-size: 3em;
   }
 
-  #fruit {
-    font-size: 2.125rem;
-
+  #clock-box {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     padding: 200px 0;
   }
 
@@ -1069,14 +1057,14 @@ article a {
   color: var(--main-text-color);
 }
 
-.metadata .fruit {
+.metadata .emoji {
   margin-left: 0.15em;
   font-size: 1.45em;
   vertical-align: -0.1em;
-  filter: grayscale(100%);
+  filter: grayscale(1);
 }
 
-.metadata .fruit:hover {
+.metadata .emoji:hover {
   background: transparent !important;
 }
 
@@ -1095,7 +1083,7 @@ h3 {
   top: 0.75rem;
 }
 
-.metadata .fruit {
+.metadata .emoji {
   position: absolute;
   right: 0.875rem;
   top: 0.625rem;
@@ -1281,4 +1269,24 @@ section#archive article h2 a {
   );
   --distance-sine: calc(var(--char-offset) / var(--char-center));
   --distance-percent: calc((var(--distance) / var(--char-center)));
+}
+
+@media (orientation: portrait) {
+  .for-portrait {
+    display: block;
+  }
+
+  .for-landscape {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
+  .for-portrait {
+    display: none;
+  }
+
+  .for-landscape {
+    display: block;
+  }
 }

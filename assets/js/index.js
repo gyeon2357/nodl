@@ -1,10 +1,10 @@
-document.getElementById("fruit").style.borderTopRightRadius =
+document.getElementById("clock-box").style.borderTopRightRadius =
   Math.random() * 60 + 40 + "%";
-document.getElementById("fruit").style.borderTopLeftRadius =
+document.getElementById("clock-box").style.borderTopLeftRadius =
   Math.random() * 60 + 40 + "%";
-document.getElementById("fruit").style.borderBottomRightRadius =
+document.getElementById("clock-box").style.borderBottomRightRadius =
   Math.random() * 60 + 40 + "%";
-document.getElementById("fruit").style.borderBottomLeftRadius =
+document.getElementById("clock-box").style.borderBottomLeftRadius =
   Math.random() * 60 + 40 + "%";
 
 // var imgs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
@@ -150,9 +150,9 @@ $(".press").click(function () {
 const teachers = Array.from(document.querySelectorAll("#people p"));
 
 function swap() {
-  const list = teachers.map((ele) => ele.innerHTML);
+  const list = teachers.map(ele => ele.innerHTML);
 
-  teachers.forEach((ele) => {
+  teachers.forEach(ele => {
     const index = Math.floor(Math.random() * list.length);
     ele.innerHTML = list.splice(index, 1);
   });
