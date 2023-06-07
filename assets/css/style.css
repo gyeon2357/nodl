@@ -610,16 +610,20 @@ body.dark nav#main a.current span.fruit {
   border-top-color: #48433a;
   border-left-color: #48433a;
   background: #2c271e;
-  background: #222;
+  background: #252525;
 }
 
 body.dark #offerings div.offering {
-  background: #222;
+  background: #252525;
+}
+
+body.dark #info p {
+  background: #252525;
 }
 
 body.dark #fruit {
   background: #2c271e;
-  background: #222;
+  background: #252525;
 }
 
 body.dark svg {
@@ -639,6 +643,26 @@ body.dark h1.extralarge a,
 body.dark .extralarge a {
   color: #a0a0a0;
   text-shadow: #5c5a53 -1px -2px 0;
+}
+
+@media (orientation: portrait) {
+  .for-portrait {
+    display: block;
+  }
+
+  .for-landscape {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
+  .for-portrait {
+    display: none;
+  }
+
+  .for-landscape {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 800px) {
