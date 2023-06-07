@@ -151,7 +151,7 @@ th {
   margin: 0;
 }
 
-.blog-portal {
+.archive-portal {
   position: absolute;
   top: 0.625rem;
   right: 1.25rem;
@@ -177,7 +177,7 @@ h1.extralarge {
   margin: 2rem 0 1rem 0;
 }
 
-h3.subcaption {
+.subcaption {
   text-decoration: underline;
   text-underline-position: under;
 }
@@ -193,7 +193,7 @@ h1.extralarge a.title {
 }
 
 h2.extralarge {
-  font-weight: normal;
+  font-weight: 600;
   font-size: 4rem;
   margin-top: 8rem;
   margin-bottom: 4rem;
@@ -205,7 +205,7 @@ h2.extralarge {
   width: 440px;
   height: 142px;
   /* border-radius: 25px; */
-  background: url("../images/giovanni_stanchi_scattered_flowers_and_fruit_on_a_ledge_1_small.jpg");
+  background: url("");
   background-size: 100% 100%;
 }
 
@@ -247,14 +247,14 @@ nav#main a span.fruit {
   justify-content: center;
 }
 
-/* nav#main a.blog {
+/* nav#main a.archive {
     position: absolute;
     top: 0.625rem;
     right: 0.625rem;
 } */
 
-nav#main a.blog span.fruit {
-  background: url("../images/giovanni_stanchi_scattered_flowers_and_fruit_on_a_ledge_1_small.jpg");
+nav#main a.archive span.fruit {
+  background: url("");
   background-size: auto 100%;
   background-position-x: center;
   border-radius: 50%;
@@ -263,8 +263,8 @@ nav#main a.blog span.fruit {
   border-bottom-color: #48433a;
 }
 
-nav#main a.blog:active span.fruit,
-nav#main a.blog:focus span.fruit {
+nav#main a.archive:active span.fruit,
+nav#main a.archive:focus span.fruit {
   border-color: #48433a;
   border-right-color: #998f8f;
   border-bottom-color: #998f8f;
@@ -279,7 +279,7 @@ nav#main a.current span.fruit {
   border: 2px solid rgb(163, 154, 143);
   border-top-color: #5c5a53;
   border-left-color: #5c5a53;
-  background: #fcfcfc;
+  background: #dddddd;
 }
 
 nav#main span.section {
@@ -327,6 +327,7 @@ td,
   border: 2px solid rgb(163, 154, 143);
   border-top-color: #5c5a53;
   border-left-color: #5c5a53;
+  background-color: #f0f0f0;
   max-width: 1026px;
   margin: 0.5em auto;
   margin-bottom: 0;
@@ -375,18 +376,18 @@ h2.hidden {
 }
 
 #offerings div.offering:nth-child(1):hover {
-    background: url('../images/giovanni_stanchi_scattered_flowers_and_fruit_on_a_ledge_1_small.jpg');
+    background: url('');
     background-size: auto 330px;
     background-position: 0% 0%;
 }
 
 #offerings div.offering:nth-child(2):hover {
-    background: url('../images/giovanni_stanchi_scattered_flowers_and_fruit_on_a_ledge_1_small.jpg');
+    background: url('');
     background-size: auto 330px;
     background-position: -350px 0%;
 }
 #offerings div.offering:nth-child(3):hover {
-    background: url('../images/giovanni_stanchi_scattered_flowers_and_fruit_on_a_ledge_1_small.jpg');
+    background: url('');
     background-size: auto 330px;
     background-position: -630px 0%;
 }
@@ -395,8 +396,8 @@ h2.hidden {
   border: 2px solid rgb(163, 154, 143);
   border-top-color: #5c5a53;
   border-left-color: #5c5a53;
-  background: #fcfcfc;
-  background-image: url(../test.png);
+  background: #eee;
+  background-image: url();
   background-size: cover;
   background-blend-mode: screen;
   border-radius: 5px;
@@ -642,13 +643,13 @@ body.dark .extralarge a {
 
 @media only screen and (max-width: 800px) {
   #offerings,
-  section#blog.special-interviews {
+  section#archive.special-interviews {
     grid-template-columns: inherit !important;
     display: block !important;
     max-width: 100% !important;
   }
 
-  section#blog.special-interviews article {
+  section#archive.special-interviews article {
     margin-bottom: 3.5em !important;
   }
 
@@ -736,7 +737,7 @@ body.dark .extralarge a {
   }
 }
 
-/* BLOG */
+/* archive */
 
 .portal,
 .portal.light {
@@ -773,6 +774,7 @@ article {
   padding: 1.75em 1.75em 1.6em;
   max-width: 25em;
   margin: 2em auto 5em;
+  background: #eee;
   border: 2px solid #998f8f;
   border-left-color: #48433a;
   border-top-color: #48433a;
@@ -828,7 +830,7 @@ article.twenty-one figcaption {
   font-size: 0.7em;
 }
 
-section#blog.special-interviews {
+section#archive.special-interviews {
   grid-template-columns: 1fr 1fr 1fr;
   display: grid;
   max-width: 1026px;
@@ -836,36 +838,36 @@ section#blog.special-interviews {
   grid-gap: 1.25rem;
 }
 
-section#blog.special-interviews article {
+section#archive.special-interviews article {
   padding: 15px 20px 20px 1.25rem;
 
   font-size: 1.375rem;
   letter-spacing: 0.3px;
 }
 
-section#blog.special-interviews article h2 {
+section#archive.special-interviews article h2 {
   font-size: 1.5em;
 }
 
-section#blog.special-interviews article h3 {
+section#archive.special-interviews article h3 {
   font-size: 0.75em !important;
 }
 
-section#blog.special-interviews article p {
+section#archive.special-interviews article p {
   font-size: 0.7em;
   font-style: italic;
 }
 
-section#blog.special-interviews figure.large {
+section#archive.special-interviews figure.large {
   margin: 0;
   width: 100%;
 }
 
-section#blog.special-interviews figure.large img {
+section#archive.special-interviews figure.large img {
   border-radius: 0.75rem;
 }
 
-section#blog.special-interviews figure.large figcaption {
+section#archive.special-interviews figure.large figcaption {
   margin: 1em 2.5em 0em;
 }
 
@@ -875,7 +877,7 @@ section#blog.special-interviews figure.large figcaption {
   color: rgba(0, 0, 0, 0.6);
 }
 
-section#blog.special-interviews a.button {
+section#archive.special-interviews a.button {
   display: inline-block;
   margin-top: 2em;
   border: 2px solid rgba(0, 0, 0, 0.25);
@@ -883,19 +885,19 @@ section#blog.special-interviews a.button {
   border-right-color: rgba(0, 0, 0, 0.6);
 }
 
-section#blog.special-interviews a:active.button {
+section#archive.special-interviews a:active.button {
   border-color: rgba(0, 0, 0, 0.6);
   border-bottom-color: rgba(0, 0, 0, 0.25);
   border-right-color: rgba(0, 0, 0, 0.25);
   background: transparent;
 }
 
-section#blog article.twenty-one h2 {
+section#archive article.twenty-one h2 {
   opacity: 1;
   margin-bottom: 0;
 }
 
-section#blog article.twenty-one h3 {
+section#archive article.twenty-one h3 {
   opacity: 1;
   margin-top: 1em;
   font-size: 1em;
@@ -987,7 +989,7 @@ article h3 {
   margin-bottom: 1em;
   margin-top: -0.25em;
   font-size: 1.25em;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 article h1 {
@@ -1075,13 +1077,13 @@ h3 {
   top: 0.625rem;
 }
 
-footer.blog {
+footer.archive {
   margin-top: 6em;
   padding: 1em;
   text-align: center;
 }
 
-footer.blog img {
+footer.archive img {
   border-radius: 50%;
   border: 2px solid #998f8f;
   border-right-color: #48433a;
@@ -1090,8 +1092,8 @@ footer.blog img {
 
 /***************************
 
-footer.blog img:active,
-footer.blog img:focus {
+footer.archive img:active,
+footer.archive img:focus {
     border: 2px solid #998f8f;
     border-left-color: #48433A;
     border-top-color: #48433A;
@@ -1108,13 +1110,6 @@ a.no-style {
 }
 
 @media only screen and (max-width: 800px) {
-  a.student-site {
-    float: none;
-    display: inline-block;
-    margin-top: 0.5em;
-    margin-bottom: 1.5em;
-  }
-
   article {
     padding: 26px 24px;
     line-height: 1.5;
@@ -1155,15 +1150,111 @@ a.no-style {
   }
 }
 
-/* BLOG ON HOME */
+/* ARCHIVE ON HOME */
 
-section#blog article h2 {
+section#archive article h2 {
   font-size: 1.75em;
   font-weight: normal;
   margin-top: 0;
   text-decoration: none;
 }
 
-section#blog article h2 a {
+section#archive article h2 a {
   text-decoration: none;
+}
+
+/* effect section */
+
+.scroll-effect-box {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin: 0 auto;
+
+  position: relative;
+}
+
+.content__title {
+  display: grid;
+
+  counter-increment: section;
+  text-align: center;
+}
+
+@supports (display: grid) {
+  .splitting.cells {
+    visibility: hidden;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+  }
+  .splitting .cell-grid {
+    background: inherit;
+    width: 100%;
+    height: 100%;
+    grid-template: repeat(var(--row-total), 1fr) / repeat(var(--col-total), 1fr);
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .splitting .cell {
+    background: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .splitting .cell-inner {
+    background: inherit;
+    visibility: visible;
+    width: calc(100% * var(--col-total));
+    height: calc(100% * var(--row-total));
+    left: calc(-100% * var(--col-index));
+    top: calc(-100% * var(--row-index));
+    position: absolute;
+  }
+  .splitting .cell {
+    --center-x: calc((var(--col-total) - 1) / 2);
+    --center-y: calc((var(--row-total) - 1) / 2);
+    --offset-x: calc(var(--col-index) - var(--center-x));
+    --offset-y: calc(var(--row-index) - var(--center-y));
+    --distance-x: calc((var(--offset-x) * var(--offset-x)) / var(--center-x));
+    --distance-y: calc((var(--offset-y) * var(--offset-y)) / var(--center-y));
+  }
+}
+.splitting .word,
+.splitting .char {
+  display: inline-block;
+}
+.splitting .char {
+  position: relative;
+}
+.splitting .char:before,
+.splitting .char:after {
+  content: attr(data-char);
+  visibility: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.splitting {
+  --word-center: calc((var(--word-total) - 1) / 2);
+  --char-center: calc((var(--char-total) - 1) / 2);
+  --line-center: calc((var(--line-total) - 1) / 2);
+}
+.splitting .word {
+  --word-percent: calc(var(--word-index) / var(--word-total));
+  --line-percent: calc(var(--line-index) / var(--line-total));
+}
+.splitting .char {
+  --char-percent: calc(var(--char-index) / var(--char-total));
+  --char-offset: calc(var(--char-index) - var(--char-center));
+  --distance: calc(
+    (var(--char-offset) * var(--char-offset)) / var(--char-center)
+  );
+  --distance-sine: calc(var(--char-offset) / var(--char-center));
+  --distance-percent: calc((var(--distance) / var(--char-center)));
 }

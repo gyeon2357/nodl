@@ -55,20 +55,19 @@ function updateClock() {
   // document.getElementById("seconds").innerHTML = secondsE;
   // document.getElementById("hours").innerHTML = hoursE;
 
-
   // var imgs = [
-//   "./assets/img/face-1",
-//   "./assets/img/face-2",
-//   "./assets/img/face-3",
-//   "./assets/img/face-4",
-//   "./assets/img/face-5",
-//   "./assets/img/face-6",
-//   "./assets/img/face-7",
-//   "./assets/img/face-8",
-//   "./assets/img/face-9",
-//   "./assets/img/face-10",
-//   "./assets/img/face-11",
-// ];
+  //   "./assets/img/face-1",
+  //   "./assets/img/face-2",
+  //   "./assets/img/face-3",
+  //   "./assets/img/face-4",
+  //   "./assets/img/face-5",
+  //   "./assets/img/face-6",
+  //   "./assets/img/face-7",
+  //   "./assets/img/face-8",
+  //   "./assets/img/face-9",
+  //   "./assets/img/face-10",
+  //   "./assets/img/face-11",
+  // ];
   $("#minutes").html(minutesE);
   $("#seconds").html(secondsE);
   $("#hours").html(hoursE);
@@ -92,12 +91,12 @@ $(".about").click(function (e) {
   $("#about").toggle();
 });
 
-$(".fruitful").click(function (e) {
+$(".news").click(function (e) {
   e.preventDefault();
   $(".topnav").removeClass("current");
   $(this).addClass("current");
   $(".toggle").css("display", "none");
-  $("#fruitful").toggle();
+  $("#news").toggle();
 });
 
 $(".people").click(function (e) {
@@ -255,12 +254,10 @@ $(".no-style").click(function () {
   no_style();
 });
 
-//countdown
+// countdown
 
 var countDownDate = new Date("August 7, 2023 23:59:59").getTime();
-
 var now = new Date().getTime();
-
 var distance = countDownDate - now;
 
 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -272,5 +269,7 @@ for (i = 0; i < hours; i++) {
   var random = fruit[Math.floor(Math.random() * fruit.length)];
   fruitHTML += " " + random;
   document.getElementById("loader").innerHTML =
-    "<br> <span class='small'> ( 30주년까지 " + days + "일 전 ) </span>";
+    "<span class='subcaption small'> * 2023년 8월 8일, 30주년까지 " +
+    days +
+    "일 전 </span>";
 }
