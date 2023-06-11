@@ -505,6 +505,14 @@ section {
   margin: 0 0 1.5rem 0;
 }
 
+.quot {
+  font-weight: 400;
+  font-size: 80%;
+  line-height: 1.55;
+
+  margin: 1rem 0 2rem 0 !important;
+}
+
 .body-box,
 td .box {
   text-align: left;
@@ -791,7 +799,6 @@ body.dark a.button:active,
 }
 
 body.dark .scroll-to-top {
-
   filter: invert(1);
 }
 
@@ -979,6 +986,10 @@ body.dark .extralarge a {
   #menu__box {
     margin: 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  #menu__box a {
+    font-size: 1.75rem;
   }
 
   .menu__btn {
