@@ -1,5 +1,5 @@
 document.getElementById("clock-box").style.borderTopRightRadius =
-  Math.random() * 60 + 40 + "%";
+  Math.random() * 60 + 120 + "%";
 document.getElementById("clock-box").style.borderTopLeftRadius =
   Math.random() * 60 + 40 + "%";
 document.getElementById("clock-box").style.borderBottomRightRadius =
@@ -7,8 +7,25 @@ document.getElementById("clock-box").style.borderBottomRightRadius =
 document.getElementById("clock-box").style.borderBottomLeftRadius =
   Math.random() * 60 + 40 + "%";
 
+document.getElementById("menu__box").style.borderTopRightRadius =
+  Math.random() * 60 + 120 + "%";
+document.getElementById("menu__box").style.borderTopLeftRadius =
+  Math.random() * 60 + 40 + "%";
+document.getElementById("menu__box").style.borderBottomRightRadius =
+  Math.random() * 60 + 40 + "%";
+document.getElementById("menu__box").style.borderBottomLeftRadius =
+  Math.random() * 60 + 40 + "%";
+
 // var imgs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
 var imgs = ["🍄", "🌿", "🌈", "🎉", "💌", "🕶", "🎒", "🎓", "🎈", "📚", "🥁"];
+
+var countDownDate = new Date("August 7, 2023 23:59:59").getTime();
+var now = new Date().getTime();
+var distance = countDownDate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+hours = days * 24 + hours;
 
 function updateClock() {
   var d = new Date();
@@ -55,19 +72,6 @@ function updateClock() {
   // document.getElementById("seconds").innerHTML = secondsE;
   // document.getElementById("hours").innerHTML = hoursE;
 
-  // var imgs = [
-  //   "./assets/img/face-1",
-  //   "./assets/img/face-2",
-  //   "./assets/img/face-3",
-  //   "./assets/img/face-4",
-  //   "./assets/img/face-5",
-  //   "./assets/img/face-6",
-  //   "./assets/img/face-7",
-  //   "./assets/img/face-8",
-  //   "./assets/img/face-9",
-  //   "./assets/img/face-10",
-  //   "./assets/img/face-11",
-  // ];
   $("#minutes").html(minutesE);
   $("#seconds").html(secondsE);
   $("#hours").html(hoursE);
@@ -75,6 +79,15 @@ function updateClock() {
   // $("#minutes").attr("src", minutesE + ".svg");
   // $("#seconds").attr("src", secondsE + ".svg");
   // $("#hours").attr("src", hoursE + ".svg");
+
+  // set replace text
+
+  // $("#seconds").html(function (index, text) {
+  //   this.innerHTML = text.replace(
+  //     /([0-z]+)/g,
+  //     "<img src='https://ik.imagekit.io/gyeon/nodl/sec$1.svg'>"
+  //   );
+  // });
 }
 
 updateClock();
@@ -83,6 +96,7 @@ setInterval(function () {
   updateClock();
 }, 1000);
 
+// click function
 $(".about").click(function (e) {
   e.preventDefault();
   $(".topnav").removeClass("current");
@@ -91,12 +105,12 @@ $(".about").click(function (e) {
   $("#about").toggle();
 });
 
-$(".news").click(function (e) {
+$(".newsletter").click(function (e) {
   e.preventDefault();
   $(".topnav").removeClass("current");
   $(this).addClass("current");
   $(".toggle").css("display", "none");
-  $("#news").toggle();
+  $("#newsletter").toggle();
 });
 
 $(".people").click(function (e) {
@@ -146,7 +160,6 @@ $(".press").click(function () {
 });
 
 // randomize teachers order
-
 const teachers = Array.from(document.querySelectorAll("#people p"));
 
 function swap() {
@@ -161,7 +174,6 @@ function swap() {
 swap();
 
 //table sorting
-
 jQuery(window).load(function () {
   $("table")
     .tablesorter()
@@ -256,20 +268,109 @@ $(".no-style").click(function () {
 
 // countdown
 
-var countDownDate = new Date("August 7, 2023 23:59:59").getTime();
-var now = new Date().getTime();
-var distance = countDownDate - now;
+// var countDownDate = new Date("August 7, 2023 23:59:59").getTime();
+// var now = new Date().getTime();
+// var distance = countDownDate - now;
 
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-hours = days * 24 + hours;
+// var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+// var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+// hours = days * 24 + hours;
 
-var fruitHTML = " ";
-for (i = 0; i < hours; i++) {
-  var random = fruit[Math.floor(Math.random() * fruit.length)];
-  fruitHTML += " " + random;
-  document.getElementById("loader").innerHTML =
-    "<span class='subcaption small'> * 2023년 8월 8일, 30주년까지 " +
-    days +
-    "일 전 </span>";
+// var imgsHTML = " ";
+// for (i = 0; i < hours; i++) {
+//   var random = imgs[Math.floor(Math.random() * imgs.length)];
+//   imgsHTML += " " + random;
+//   document.getElementById("loader").innerHTML =
+//     "<span class='subcaption small'>2023년 8월 8일, 30주년까지 " +
+//     days +
+//     "일 전 </span>";
+// }
+
+// copy to clipboard
+
+function clip() {
+  var copyText = document.getElementById("clip").value;
+  navigator.clipboard.writeText(copyText).then(() => {
+    alert("클립보드에 복사되었습니다.");
+  });
 }
+
+// menu
+
+$(function () {
+  $("body")
+    .find("a")
+    .click(function () {
+      $("input:checkbox[id='menu__toggle']").prop("checked", false);
+    });
+
+  $("input:checkbox[id='menu__toggle']").on("change", function () {
+    if ($(this).is(":checked")) {
+      $("").css("overflow", "hidden");
+      $("").css("filter", "opacity(0.3) blur(8px)");
+    } else {
+      $("").css("overflow", "scroll");
+      $("").css("filter", "");
+    }
+  });
+});
+
+// menu button position
+
+$(function () {
+  $("#menu__box a").click(function () {
+    $("html, body").animate({scrollTop: $("nav#main ul").offset().top}, "slow");
+    return false;
+  });
+});
+
+// scroll to top
+$(function () {
+  $(".scroll-to-top").click(function () {
+    $("html, body").animate({scrollTop: $("body").offset().top}, "slow");
+    return false;
+  });
+
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    $(".scroll-to-top").css({display: "none"});
+  }
+
+  window.onscroll = function () {
+    scrolltotopFunction();
+    menuFunction();
+    switchFunction();
+  };
+
+  function scrolltotopFunction() {
+    if (
+      document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100
+    ) {
+      $(".scroll-to-top").css("display", "block");
+    } else {
+      $(".scroll-to-top").css("display", "none");
+    }
+  }
+
+  function menuFunction() {
+    if (
+      document.body.scrollTop > 812 ||
+      document.documentElement.scrollTop > 812
+    ) {
+      $(".menu__btn").css("display", "flex");
+    } else {
+      $(".menu__btn").css("display", "none");
+    }
+  }
+
+  function switchFunction() {
+    if (
+      document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100
+    ) {
+      $(".switch").css("display", "block");
+    } else {
+      $(".switch").css("display", "none");
+    }
+  }
+});
