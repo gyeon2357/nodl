@@ -17,8 +17,7 @@
   --color-pink: #d35671;
   --color-pink-50: #d3567173;
   --color-yellow: #e9bf30;
-  --color-8: #;
-  --color-9: #;
+  --color-yellow-b: #ffc400;
 }
 
 html {
@@ -41,7 +40,12 @@ html {
 
 @font-face {
   font-family: "GowunDodum-Regular";
-  src: url("../font/GowunDodum-Regular.ttf") format("truetype");
+  src: url("../fonts/GowunDodum-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NormalBatang-Regular";
+  src: url("../fonts/NormalBatang-Regular.otf") format("opentype");
 }
 
 @media (max-width: 699px) {
@@ -355,6 +359,12 @@ nav#main a span.emoji {
   display: none;
   align-items: center;
   justify-content: center;
+
+  transition: box-shadow 0.25s ease-out;
+}
+
+.menu__btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 12px;
 }
 
 .menu__btn > span::before {
@@ -469,6 +479,11 @@ nav#main a span.emoji {
   color: #000;
 
   border-radius: 50%;
+  transition: filter 0.25s ease-out;
+}
+
+.scroll-to-top:hover {
+  filter: invert(1);
 }
 
 .scroll-to-top img {
@@ -609,6 +624,11 @@ td .box {
 
 .body-box:last-child {
   margin-bottom: 0;
+}
+
+.serif {
+  font-family: "GowunDodum-Regular", serif;
+  letter-spacing: -0.2px;
 }
 
 .box ul {
