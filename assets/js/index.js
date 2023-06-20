@@ -1,5 +1,5 @@
 document.getElementById("clock-box").style.borderTopRightRadius =
-  Math.random() * 60 + 120 + "%";
+  Math.random() * 60 + 100 + "%";
 document.getElementById("clock-box").style.borderTopLeftRadius =
   Math.random() * 60 + 40 + "%";
 document.getElementById("clock-box").style.borderBottomRightRadius =
@@ -8,7 +8,7 @@ document.getElementById("clock-box").style.borderBottomLeftRadius =
   Math.random() * 60 + 40 + "%";
 
 document.getElementById("menu__box").style.borderTopRightRadius =
-  Math.random() * 60 + 120 + "%";
+  Math.random() * 60 + 100 + "%";
 document.getElementById("menu__box").style.borderTopLeftRadius =
   Math.random() * 60 + 40 + "%";
 document.getElementById("menu__box").style.borderBottomRightRadius =
@@ -17,21 +17,26 @@ document.getElementById("menu__box").style.borderBottomLeftRadius =
   Math.random() * 60 + 40 + "%";
 
 // var imgs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
-var imgs = ["🍄", "🌿", "🌈", "🎉", "💌", "🕶", "🎒", "🎓", "🎈", "📚", "🥁"];
-
-var countDownDate = new Date("August 7, 2023 23:59:59").getTime();
-var now = new Date().getTime();
-var distance = countDownDate - now;
-
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-hours = days * 24 + hours;
+var imgs = ["🍄", "🌿", "🌈", "🎉", "💌", "🥁", "🎒", "🎓", "🎈", "📚", "🕶"];
 
 function updateClock() {
+  var countDownDate = new Date("August 7, 2023 23:59:59").getTime();
   var d = new Date();
-  var minutes = d.getMinutes();
-  var seconds = d.getSeconds();
-  var hours = d.getHours();
+  var distance = countDownDate - d;
+
+  // var hours = d.getHours();
+  // var minutes = d.getMinutes();
+  // var seconds = d.getSeconds();
+
+  const difDay = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const difHour = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const difMin = Math.floor((distance / (1000 * 60)) % 60);
+  const difSec = Math.floor((distance / 1000) % 60);
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  var minutes = Math.floor((distance / (1000 * 60)) % 60);
+  var seconds = Math.floor((distance / 1000) % 60);
 
   if (hours > 0 && hours <= 12) {
     hours = hours;
@@ -41,9 +46,17 @@ function updateClock() {
     hours = 12;
   }
 
+  var daysE = "";
   var hoursE = "";
   var minutesE = "";
   var secondsE = "";
+
+  for (i = 0; i < days.toString().length; i++) {
+    var stringH = days.toString().charAt(i);
+    // convert the first digit back to an integer
+    var numberH = parseInt(stringH);
+    daysE += imgs[numberH];
+  }
 
   for (i = 0; i < hours.toString().length; i++) {
     var stringH = hours.toString().charAt(i);
@@ -68,17 +81,14 @@ function updateClock() {
     secondsE += imgs[numberH];
   }
 
-  // document.getElementById("minutes").innerHTML = minutesE;
-  // document.getElementById("seconds").innerHTML = secondsE;
-  // document.getElementById("hours").innerHTML = hoursE;
+  document.getElementById(
+    "number-1"
+  ).innerText = `${difDay}일 ${difHour}시간 ${difMin}분 ${difSec}초`;
 
-  $("#minutes").html(minutesE);
-  $("#seconds").html(secondsE);
-  $("#hours").html(hoursE);
-
-  // $("#minutes").attr("src", minutesE + ".svg");
-  // $("#seconds").attr("src", secondsE + ".svg");
-  // $("#hours").attr("src", hoursE + ".svg");
+  $("#days-1").html(daysE);
+  $("#hours-1").html(hoursE);
+  $("#minutes-1").html(minutesE);
+  $("#seconds-1").html(secondsE);
 
   // set replace text
 
@@ -113,14 +123,19 @@ $(".newsletter").click(function (e) {
   $("#newsletter").toggle();
 });
 
-$(".people").click(function (e) {
+$(".history").click(function (e) {
   e.preventDefault();
   swap();
   $(".topnav").removeClass("current");
   $(this).addClass("current");
   $(".toggle").css("display", "none");
-  $("#people").css("display", "block");
+  $("#history").css("display", "block");
 });
+
+// $(".archive").click(function (e) {
+//   $(".topnav").removeClass("current");
+//   $(this).addClass("current");
+// });
 
 $(".faq").click(function (e) {
   e.preventDefault();
@@ -160,7 +175,7 @@ $(".press").click(function () {
 });
 
 // randomize teachers order
-const teachers = Array.from(document.querySelectorAll("#people p"));
+const teachers = Array.from(document.querySelectorAll("#history p"));
 
 function swap() {
   const list = teachers.map(ele => ele.innerHTML);
@@ -266,25 +281,14 @@ $(".no-style").click(function () {
   no_style();
 });
 
-// countdown
+// iframe
 
-// var countDownDate = new Date("August 7, 2023 23:59:59").getTime();
-// var now = new Date().getTime();
-// var distance = countDownDate - now;
-
-// var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-// var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-// hours = days * 24 + hours;
-
-// var imgsHTML = " ";
-// for (i = 0; i < hours; i++) {
-//   var random = imgs[Math.floor(Math.random() * imgs.length)];
-//   imgsHTML += " " + random;
-//   document.getElementById("loader").innerHTML =
-//     "<span class='subcaption small'>2023년 8월 8일, 30주년까지 " +
-//     days +
-//     "일 전 </span>";
-// }
+jQuery(".play-btn").click(function (e) {
+  e.preventDefault();
+  jQuery(this).hide();
+  jQuery("#background-video").find("iframe").show();
+  jQuery("#background-video").find("iframe")[0].src += "?autoplay=1";
+});
 
 // copy to clipboard
 
@@ -295,22 +299,21 @@ function clip() {
   });
 }
 
-// menu
+// menu check
 
 $(function () {
   $("body")
     .find("a")
     .click(function () {
       $("input:checkbox[id='menu__toggle']").prop("checked", false);
+      $("header, main, footer").css("opacity", "1");
     });
 
   $("input:checkbox[id='menu__toggle']").on("change", function () {
     if ($(this).is(":checked")) {
-      $("").css("overflow", "hidden");
-      $("").css("filter", "opacity(0.3) blur(8px)");
+      $("header, main, footer").css("opacity", ".2");
     } else {
-      $("").css("overflow", "scroll");
-      $("").css("filter", "");
+      $("header, main, footer").css("opacity", "1");
     }
   });
 });
@@ -318,7 +321,7 @@ $(function () {
 // menu button position
 
 $(function () {
-  $("#menu__box a").click(function () {
+  $("#menu__box a.about, #menu__box a.newsletter").click(function () {
     $("html, body").animate({scrollTop: $("nav#main ul").offset().top}, "slow");
     return false;
   });
@@ -373,4 +376,110 @@ $(function () {
       $(".switch").css("display", "none");
     }
   }
+});
+
+// fetti
+
+PREMIUM = true;
+
+var colors = PREMIUM
+      ? ["a67c00", "bf9b30", "ffbf00", "ffcf40", "ffdc73"]
+      : ["DF4678", "00CECB", "995AE2", "FFC857", "CA3B4E"];
+
+function createElements(root, elementCount) {
+  return Array
+    .from({ length: elementCount })
+    .map((_, index) => {
+      const element = document.createElement('div');
+      element.classList = ['fetti'];
+      const color = colors[index % colors.length];
+      element.style.backgroundImage =
+      "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23" +
+      color +
+      "' d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z'/%3E%3C/svg%3E\")";
+    
+      var size = Math.random()*12+4;
+
+      element.style.opacity = 1;
+      element.style.width = size+'px';
+      root.appendChild(element);
+      return element;
+    });
+}
+
+function randomPhysics(angle, spread, startVelocity) {
+  const radAngle = angle * (Math.PI / 180);
+  const radSpread = spread * (Math.PI / 180);
+  return {
+    x: 0,
+    y: 0,
+    wobble: Math.random() * 10,
+    velocity: (startVelocity * 0.65) + Math.max(Math.random(), .35) * startVelocity,
+    angle2D: -radAngle + ((0.5 * radSpread) - (Math.random() * radSpread)),
+    angle3D: -(Math.PI / 4) + (Math.random() * (Math.PI / 2)),
+    // angle3D: 0,
+    tiltAngle: Math.random() * Math.PI
+  };
+}
+
+function updateFetti(fetti, progress, decay) {
+  /* eslint-disable no-param-reassign */
+  fetti.physics.x += Math.cos(fetti.physics.angle2D) * fetti.physics.velocity;
+  fetti.physics.y += Math.sin(fetti.physics.angle2D) * fetti.physics.velocity;
+  fetti.physics.z += Math.sin(fetti.physics.angle3D) * fetti.physics.velocity;
+  fetti.physics.wobble += 0.05;
+  fetti.physics.velocity *= decay;
+  fetti.physics.y += 1;
+  fetti.physics.tiltAngle += 7;
+
+  const { x, y, tiltAngle, wobble } = fetti.physics;
+  const wobbleX = x + (10 * Math.cos(wobble));
+  const wobbleY = y + (10 * Math.sin(wobble));
+  const transform = `translate3d(${wobbleX}px, ${wobbleY}px, 0) rotateZ(${tiltAngle}deg)`;
+
+  fetti.element.style.transform = transform;
+  fetti.element.style.opacity = Math.min(1 - (progress * 4.2), 100 - y);
+
+  /* eslint-enable */
+}
+
+function animate(root, fettis, decay) {
+  const totalTicks = 200;
+  let tick = 0;
+
+  function update() {
+    fettis.forEach((fetti) => updateFetti(fetti, tick / totalTicks, decay));
+
+    tick += 1;
+    if (tick < totalTicks) {
+      requestAnimationFrame(update);
+    } else {
+      fettis.forEach((fetti) => root.removeChild(fetti.element));
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+function confetti(root, {
+    angle = 90,
+    decay = .7,
+    spread = 270,
+    startVelocity = 11,
+    elementCount = 15
+  } = {}) {
+
+  const elements = createElements(root, elementCount);
+  const fettis = elements.map((element) => ({
+    element,
+    physics: randomPhysics(angle, spread, startVelocity)
+  }));
+  animate(root, fettis, decay);
+}
+
+
+$(function() {
+  $(".button-effect").click(function(){
+    confetti(this);
+  });
 });
